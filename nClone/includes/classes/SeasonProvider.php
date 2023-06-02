@@ -53,6 +53,7 @@ class SeasonProvider {
                                 <span>$description</span>
                             </div>
 
+
                         </div>
                     </div>
                 </a>";

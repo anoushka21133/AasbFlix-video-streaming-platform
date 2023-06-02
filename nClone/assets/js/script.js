@@ -1,9 +1,14 @@
+$(document).scroll(function() {
+    var isScrolled = $(this).scrollTop() > $(".topBar").height();
+    $(".topBar").toggleClass("scrolled", isScrolled);
+})
+
 function volumeToggle(button) {
     var muted = $(".previewVideo").prop("muted");
     $(".previewVideo").prop("muted", !muted);
 
-    $(button).find("i").toggleClass("fa-volume-mute");
-    $(button).find("i").toggleClass("fa-volume-up");
+    $(button).find("i").toggleClass("fas fa-volume-mute");
+    $(button).find("i").toggleClass("fas fa-volume-up");
 }
 
 function previewEnded() {
@@ -89,4 +94,18 @@ function setStartTime(videoId, username){
             $("video").off("canplay");
         })
     })
+}
+
+function restartVideo() {
+    $("video")[0].currentTime = 0;
+    $("video")[0].play();
+    $(".upNext").fadeOut();
+}
+
+function watchVideo(videoId){
+    window.location.href= "watch.php?id=" + videoId;
+}
+
+function showUpNext(){
+    $(".upNext").fadeIn();
 }
